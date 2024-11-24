@@ -44,8 +44,11 @@ class MyHomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const SizedBox(height: 16),
-            const Text(
-              'Paste your JSON in the textarea below, click convert and get your parsed JSON.',
+            Container(
+              margin: const EdgeInsets.only(left: 24, right: 24),
+              child: const Text(
+                'Paste your JSON in the textarea below, click convert and get your parsed JSON.',
+              ),
             ),
             const SizedBox(height: 24),
             Row(
