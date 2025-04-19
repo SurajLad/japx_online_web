@@ -21,7 +21,48 @@ class MyHomePage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/about');
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text('About'),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        const SizedBox(height: 16),
+                        Image.network(
+                          'https://raw.githubusercontent.com/infinum/flutter-plugins-japx/master/japx-logo-new.png',
+                          width: MediaQuery.of(context).size.width * 0.15,
+                          height: MediaQuery.of(context).size.width * 0.15,
+                        ),
+                        const SizedBox(height: 16),
+                        const Text(
+                          'JSON:API Decoder/Encoder',
+                          style: TextStyle(fontSize: 24),
+                        ),
+                        const SizedBox(height: 16),
+                        const Text(
+                          'JSON API Parser online is tool for converting complex\nJSON:API structure into simple JSON based on Flutter Japx.',
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 16),
+                        const Text('Credits : '),
+                        const Text('https://pub.dev/packages/japx'),
+                        const SizedBox(height: 24),
+                      ],
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  );
+                },
+              );
             },
             child: const Text("About"),
           ),
@@ -132,24 +173,20 @@ class MyHomePage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           TextButton.icon(
-            icon: SizedBox(
-              width: 20,
-              height: 20,
+            label: SizedBox(
+              width: 16,
+              height: 16,
               child: Image.asset(
                 'assets/github.png',
               ),
             ),
-            label: const Text('Github'),
+            icon: const Text('Handcrafted by Suraj Lad'),
             onPressed: () => html.window.open(
               'https://github.com/SurajLad/',
               'Suraj Lad',
             ),
           ),
-          const SizedBox(height: 16),
-          const Text(
-            'Handcrafted by Suraj Lad',
-          ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
         ],
       ),
     );

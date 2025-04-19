@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jpax_online/about_page.dart';
 import 'package:jpax_online/home_page.dart';
 
 void main() {
@@ -19,9 +18,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: MyHomePage(title: 'JSON:API Parser Online'),
-      routes: {
-        '/about': (context) => const AboutPage(),
-      },
     );
   }
 }
